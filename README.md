@@ -1,47 +1,51 @@
 # Yandex Disk PHP SDK
 
-![Yandex Disk PHP SDK](https://github.com/user-attachments/assets/4d61aef4-2925-4eac-b863-63b7841fd8b3)
+![Yandex Disk PHP SDK](https://i.ibb.co/Q3wQkhRW/yandex-disk-php-hero-banner.png)
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.1+-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Yandex Disk API](https://img.shields.io/badge/API-Yandex%20Disk%20API-orange.svg)](https://yandex.ru/dev/disk-api/doc/ru/)
 [![Laravel](https://img.shields.io/badge/Laravel-Compatible-ff2d20.svg)](https://laravel.com)
 
-Комплексный PHP SDK для интеграции с [Yandex Disk API](https://yandex.ru/dev/disk-api/doc/ru/). Эта библиотека предоставляет чистый, интуитивный интерфейс для управления файлами и папками на Яндекс Диске с полным покрытием официального API.
+**🌐 Язык:** Русский | [English](README-en.md)
+
+Комплексный PHP SDK для интеграции с [Yandex Disk API](https://yandex.ru/dev/disk-api/doc/ru/). Эта библиотека
+предоставляет чистый, интуитивный интерфейс для управления файлами и папками на Яндекс Диске с полным покрытием
+официального API.
 
 ## 📋 Справочник API
 
-| Метод | Эндпоинт | Документация | Описание |
-|--------|----------|---------------|-------------|
-| `getAuthorizationUrl()` | - | [OAuth Guide](https://yandex.ru/dev/disk-api/doc/ru/concepts/quickstart) | Генерация URL авторизации OAuth |
-| `getCapacity()` | `GET /` | [Disk Info](https://yandex.ru/dev/disk-api/doc/ru/reference/capacity) | Получение информации о диске |
-| `getMeta()` | `GET /resources` | [Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/meta) | Получение метаданных ресурса |
-| `addMeta()` | `PATCH /resources` | [Add Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/meta-add) | Добавление пользовательских метаданных |
-| `getAllFiles()` | `GET /resources/files` | [All Files](https://yandex.ru/dev/disk-api/doc/ru/reference/all-files) | Получение плоского списка всех файлов |
-| `getRecentUploads()` | `GET /resources/last-uploaded` | [Recent Uploads](https://yandex.ru/dev/disk-api/doc/ru/reference/recent-upload) | Получение недавно загруженных файлов |
-| `getRecentPublished()` | `GET /resources/public` | [Published Files](https://yandex.ru/dev/disk-api/doc/ru/reference/recent-public) | Получение недавно опубликованных файлов |
-| `createFolder()` | `PUT /resources` | [Create Folder](https://yandex.ru/dev/disk-api/doc/ru/reference/create-folder) | Создание папки |
-| `uploadFile()` | `GET /resources/upload` | [Upload File](https://yandex.ru/dev/disk-api/doc/ru/reference/upload) | Загрузка файла |
-| `uploadFromUrl()` | `POST /resources/upload` | [Upload from URL](https://yandex.ru/dev/disk-api/doc/ru/reference/upload-ext) | Загрузка файла из интернета |
-| `downloadFile()` | `GET /resources/download` | [Download File](https://yandex.ru/dev/disk-api/doc/ru/reference/content) | Скачивание файла |
-| `copy()` | `POST /resources/copy` | [Copy Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/copy) | Копирование файла/папки |
-| `move()` | `POST /resources/move` | [Move Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/move) | Перемещение файла/папки |
-| `delete()` | `DELETE /resources` | [Delete Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/delete) | Удаление файла/папки |
-| `publish()` | `PUT /resources/publish` | [Publish Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/publish) | Публикация ресурса |
-| `unpublish()` | `PUT /resources/unpublish` | [Unpublish Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/unpublish) | Отмена публикации ресурса |
-| `getAvailablePublicSettings()` | `GET /public/resources/public-settings/available` | [Available Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-get-available) | Получение доступных публичных настроек |
-| `getPublicSettings()` | `GET /public/resources/public-settings` | [Public Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-get) | Получение публичных настроек ресурса |
-| `changePublicSettings()` | `PUT /resources/public` | [Change Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-change) | Изменение публичных настроек |
-| `getPublicResourceMeta()` | `GET /public/resources` | [Public Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/public) | Получение метаданных публичного ресурса |
-| `downloadPublicResource()` | `GET /public/resources/download` | [Download Public](https://yandex.ru/dev/disk-api/doc/ru/reference/public) | Скачивание публичного ресурса |
-| `savePublicResource()` | `POST /public/resources/save` | [Save Public Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/public) | Сохранение публичного ресурса |
-| `getTrash()` | `GET /trash/resources` | [Trash List](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-delete) | Получение содержимого корзины |
-| `restoreFromTrash()` | `PUT /trash/resources/restore` | [Restore from Trash](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-restore) | Восстановление из корзины |
-| `clearTrash()` | `DELETE /trash/resources` | [Clear Trash](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-delete) | Очистка корзины |
-| `getOperationStatus()` | `GET /operations/{id}` | [Operation Status](https://yandex.ru/dev/disk-api/doc/ru/reference/operations) | Получение статуса операции |
-| `getPublicResourcesOwnedByUser()` | `GET /public/resources/admin/public-resources` | [Owned Resources](https://yandex.ru/dev/disk-api/doc/ru/reference/public-owned-by-user) | Администратор: публичные ресурсы пользователя |
-| `getPublicResourcesAccessedByUser()` | `GET /public/resources/admin/accessible-resources` | [Accessible Resources](https://yandex.ru/dev/disk-api/doc/ru/reference/public-accessed-by-user) | Администратор: доступные пользователю ресурсы |
-| `unpublishUserResource()` | `PUT /public/resources/admin/unpublish` | [Admin Unpublish](https://yandex.ru/dev/disk-api/doc/ru/reference/unpublish-admin-phash) | Администратор: отмена публикации ресурса |
+| Метод                                | Эндпоинт                                           | Документация                                                                                        | Описание                                      |
+|--------------------------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| `getAuthorizationUrl()`              | -                                                  | [OAuth Guide](https://yandex.ru/dev/disk-api/doc/ru/concepts/quickstart)                            | Генерация URL авторизации OAuth               |
+| `getCapacity()`                      | `GET /`                                            | [Disk Info](https://yandex.ru/dev/disk-api/doc/ru/reference/capacity)                               | Получение информации о диске                  |
+| `getMeta()`                          | `GET /resources`                                   | [Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/meta)                                    | Получение метаданных ресурса                  |
+| `addMeta()`                          | `PATCH /resources`                                 | [Add Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/meta-add)                            | Добавление пользовательских метаданных        |
+| `getAllFiles()`                      | `GET /resources/files`                             | [All Files](https://yandex.ru/dev/disk-api/doc/ru/reference/all-files)                              | Получение плоского списка всех файлов         |
+| `getRecentUploads()`                 | `GET /resources/last-uploaded`                     | [Recent Uploads](https://yandex.ru/dev/disk-api/doc/ru/reference/recent-upload)                     | Получение недавно загруженных файлов          |
+| `getRecentPublished()`               | `GET /resources/public`                            | [Published Files](https://yandex.ru/dev/disk-api/doc/ru/reference/recent-public)                    | Получение недавно опубликованных файлов       |
+| `createFolder()`                     | `PUT /resources`                                   | [Create Folder](https://yandex.ru/dev/disk-api/doc/ru/reference/create-folder)                      | Создание папки                                |
+| `uploadFile()`                       | `GET /resources/upload`                            | [Upload File](https://yandex.ru/dev/disk-api/doc/ru/reference/upload)                               | Загрузка файла                                |
+| `uploadFromUrl()`                    | `POST /resources/upload`                           | [Upload from URL](https://yandex.ru/dev/disk-api/doc/ru/reference/upload-ext)                       | Загрузка файла из интернета                   |
+| `downloadFile()`                     | `GET /resources/download`                          | [Download File](https://yandex.ru/dev/disk-api/doc/ru/reference/content)                            | Скачивание файла                              |
+| `copy()`                             | `POST /resources/copy`                             | [Copy Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/copy)                               | Копирование файла/папки                       |
+| `move()`                             | `POST /resources/move`                             | [Move Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/move)                               | Перемещение файла/папки                       |
+| `delete()`                           | `DELETE /resources`                                | [Delete Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/delete)                           | Удаление файла/папки                          |
+| `publish()`                          | `PUT /resources/publish`                           | [Publish Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/publish)                         | Публикация ресурса                            |
+| `unpublish()`                        | `PUT /resources/unpublish`                         | [Unpublish Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/unpublish)                     | Отмена публикации ресурса                     |
+| `getAvailablePublicSettings()`       | `GET /public/resources/public-settings/available`  | [Available Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-get-available) | Получение доступных публичных настроек        |
+| `getPublicSettings()`                | `GET /public/resources/public-settings`            | [Public Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-get)              | Получение публичных настроек ресурса          |
+| `changePublicSettings()`             | `PUT /resources/public`                            | [Change Settings](https://yandex.ru/dev/disk-api/doc/ru/reference/public-settings-change)           | Изменение публичных настроек                  |
+| `getPublicResourceMeta()`            | `GET /public/resources`                            | [Public Metadata](https://yandex.ru/dev/disk-api/doc/ru/reference/public)                           | Получение метаданных публичного ресурса       |
+| `downloadPublicResource()`           | `GET /public/resources/download`                   | [Download Public](https://yandex.ru/dev/disk-api/doc/ru/reference/public)                           | Скачивание публичного ресурса                 |
+| `savePublicResource()`               | `POST /public/resources/save`                      | [Save Public Resource](https://yandex.ru/dev/disk-api/doc/ru/reference/public)                      | Сохранение публичного ресурса                 |
+| `getTrash()`                         | `GET /trash/resources`                             | [Trash List](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-delete)                          | Получение содержимого корзины                 |
+| `restoreFromTrash()`                 | `PUT /trash/resources/restore`                     | [Restore from Trash](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-restore)                 | Восстановление из корзины                     |
+| `clearTrash()`                       | `DELETE /trash/resources`                          | [Clear Trash](https://yandex.ru/dev/disk-api/doc/ru/reference/trash-delete)                         | Очистка корзины                               |
+| `getOperationStatus()`               | `GET /operations/{id}`                             | [Operation Status](https://yandex.ru/dev/disk-api/doc/ru/reference/operations)                      | Получение статуса операции                    |
+| `getPublicResourcesOwnedByUser()`    | `GET /public/resources/admin/public-resources`     | [Owned Resources](https://yandex.ru/dev/disk-api/doc/ru/reference/public-owned-by-user)             | Администратор: публичные ресурсы пользователя |
+| `getPublicResourcesAccessedByUser()` | `GET /public/resources/admin/accessible-resources` | [Accessible Resources](https://yandex.ru/dev/disk-api/doc/ru/reference/public-accessed-by-user)     | Администратор: доступные пользователю ресурсы |
+| `unpublishUserResource()`            | `PUT /public/resources/admin/unpublish`            | [Admin Unpublish](https://yandex.ru/dev/disk-api/doc/ru/reference/unpublish-admin-phash)            | Администратор: отмена публикации ресурса      |
 
 ## 🔐 Получение OAuth-токена
 
@@ -51,17 +55,19 @@
 
 1. Зайдите под своей учётной записью на Яндекс OAuth: https://oauth.yandex.ru/
 2. Нажмите на кнопку "+ Создать"
-3. Во всплывающем окне "Какое приложение хотите создать?" укажите "Для доступа к API или отладки" и нажмите "Перейти к созданию"
+3. Во всплывающем окне "Какое приложение хотите создать?" укажите "Для доступа к API или отладки" и нажмите "Перейти к
+   созданию"
 4. Заполните форму:
-   - **Название сервиса**: Укажите название вашего приложения
-   - **Почта для связи**: Ваш контактный email
-   - **Доступ к данным**: Выберите необходимые права:
-     - `cloud_api:disk.write` — Запись в любом месте на Диске
-     - `cloud_api:disk.read` — Чтение всего Диска  
-     - `cloud_api:disk.app_folder` — Доступ к папке приложения на Диске
-     - `cloud_api:disk.info` — Доступ к информации о Диске
+    - **Название сервиса**: Укажите название вашего приложения
+    - **Почта для связи**: Ваш контактный email
+    - **Доступ к данным**: Выберите необходимые права:
+        - `cloud_api:disk.write` — Запись в любом месте на Диске
+        - `cloud_api:disk.read` — Чтение всего Диска
+        - `cloud_api:disk.app_folder` — Доступ к папке приложения на Диске
+        - `cloud_api:disk.info` — Доступ к информации о Диске
 
 После создания приложения вам будут показаны:
+
 - **ClientID** — понадобится для получения OAuth-токена
 - **Client secret** — для работы с Яндекс Диском он не понадобится
 
@@ -81,6 +87,7 @@ echo $authUrl;
 ```
 
 Или сформируйте ссылку вручную:
+
 ```
 https://oauth.yandex.ru/authorize?response_type=token&client_id=<ClientID>
 ```
@@ -492,16 +499,16 @@ try {
 
 ## 📊 Покрытие API
 
-| Категория | Реализовано | Всего | Процент |
-|-----------|-------------|-------|---------|
-| Информация о диске | ✅ 1 | 1 | 100% |
-| Операции с файлами | ✅ 8 | 8 | 100% |
-| Публичные ресурсы | ✅ 8 | 8 | 100% |
-| Управление корзиной | ✅ 3 | 3 | 100% |
-| Метаданные | ✅ 2 | 2 | 100% |
-| Методы администратора | ✅ 3 | 3 | 100% |
-| Операции | ✅ 1 | 1 | 100% |
-| **Всего** | ✅ 26 | 26 | **100%** |
+| Категория             | Реализовано | Всего | Процент  |
+|-----------------------|-------------|-------|----------|
+| Информация о диске    | ✅ 1         | 1     | 100%     |
+| Операции с файлами    | ✅ 8         | 8     | 100%     |
+| Публичные ресурсы     | ✅ 8         | 8     | 100%     |
+| Управление корзиной   | ✅ 3         | 3     | 100%     |
+| Метаданные            | ✅ 2         | 2     | 100%     |
+| Методы администратора | ✅ 3         | 3     | 100%     |
+| Операции              | ✅ 1         | 1     | 100%     |
+| **Всего**             | ✅ 26        | 26    | **100%** |
 
 ## 🤝 Участие в разработке
 
@@ -521,6 +528,7 @@ try {
 ## 📞 Поддержка
 
 Для проблем, вопросов или вкладов:
+
 - Создайте issue на [GitHub](https://github.com/tigusigalpa/yandex-disk-php/issues)
 - Проверьте [официальную документацию](https://yandex.ru/dev/disk-api/doc/ru/)
 - Ознакомьтесь с [руководством по устранению неполадок](https://yandex.ru/dev/disk-api/doc/ru/concepts/troubleshooting)
