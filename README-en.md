@@ -1,7 +1,7 @@
 # Yandex Disk PHP SDK
 
 <div align="center">
-  <img src="https://i.ibb.co/Q3wQkhRW/yandex-disk-php-hero-banner.png" alt="Yandex Disk PHP SDK" style="max-width: 100%; height: auto;">
+  <img src="https://github.com/user-attachments/assets/e68c499e-7bc7-4dd1-bb91-319ffa138ab4" alt="Yandex Disk PHP SDK" style="max-width: 100%; height: auto;">
 </div>
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.1+-blue.svg)](https://php.net)
